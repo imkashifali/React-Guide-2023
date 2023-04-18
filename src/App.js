@@ -1,26 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 function App() {
-  const [isValid, setIsValid] = useState(true);
-
-  const changeColors = (event) => {
-    console.log("click me");
-    event.preventDefault();
-
-    setIsValid(false);
-    return;
-  };
   return (
     <div>
-      <p
-        style={{
-          color: !isValid ? "green" : "red",
-          backgroundColor: !isValid ? "yellow" : "green",
-        }}
-      >
-        Goals
-      </p>
-      <button onClick={changeColors}>click me</button>
+      <p>Goals Tools</p>
+      <button>click me</button>
     </div>
   );
 }
