@@ -3,8 +3,7 @@ import React from "react";
 function App() {
   return (
     <div>
-      <p>Goals Tools</p>
-      <button>click me</button>
+      <h1>Ref/Portal</h1>
     </div>
   );
 }
