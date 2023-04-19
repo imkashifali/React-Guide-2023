@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import AddUser from "./components/Users/AddUser.jsx";
+import UserList from "./components/Users/UserList.jsx";
 
 function App() {
-  const [isValid, setIsValid] = useState(true);
+  const [userList, setUserList] = useState([]);
 
-  const changeColors = (event) => {
-    console.log("click me");
-    event.preventDefault();
-
-    setIsValid(false);
-    return;
+  const AddUserHandlerData = (enterUserName, enterAge) => {
+    setUserList((prevUserList) => {
+      return [
+        ...prevUserList,
+        { name: enterUserName, age: enterAge, id: Math.random().toString() },
+      ];
+    });
   };
+
   return (
-    <div>
-      <p
-        style={{
-          color: !isValid ? "green" : "red",
-          backgroundColor: !isValid ? "yellow" : "green",
-        }}
-      >
-        Goals
-      </p>
-      <button onClick={changeColors}>click me</button>
-    </div>
+    <Fragment>
+      <AddUser onAddUser={AddUserHandlerData} />
+      <UserList users={userList} />
+    </Fragment>
   );
 }
 
