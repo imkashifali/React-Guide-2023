@@ -7,22 +7,21 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const userSetInformation = localStorage.getItem("logedIn");
+    const getUserNameHndlers = localStorage.getItem("logged");
 
-    if (userSetInformation === "1") {
+    if (getUserNameHndlers === "1") {
       setIsLoggedIn(true);
     }
   }, []);
-
   const loginHandler = (email, password) => {
     // We should of course check email and password
     // But it's just a dummy/ demo anyways
-    localStorage.setItem("logedIn", "1");
+    localStorage.setItem("logged", "1");
     setIsLoggedIn(true);
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("logged");
     setIsLoggedIn(false);
   };
 
